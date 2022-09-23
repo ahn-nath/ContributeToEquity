@@ -99,7 +99,9 @@ router.get('/:zipCode', async (req, res) => {
               repInfo.twitter = twitter.id
             }
           }
+          if(repInfo.twitter != "Not Made Public"){
           congressMembers.push(repInfo)
+          }
         })
       })
 

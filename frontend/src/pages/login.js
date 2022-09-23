@@ -1,14 +1,15 @@
 
 import React from "react";
-  
+import LoginForm from "../components/login";
+import { Container } from "reactstrap";
+
 const Login = () => {
   return (
-    <div>
-      <h1>
-        Login page!
-      </h1>
-    </div>
+    <Container className="d-flex flex flex-column align-items-center">
+        <LoginForm />
+    </Container>
+
   );
 };
-  
+
 export default Login;

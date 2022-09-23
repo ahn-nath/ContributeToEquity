@@ -4,6 +4,7 @@ const express = require('express')
 const axios = require('axios')
 
 const router = express.Router()
+const app = express()
 
 const CIVIC_API_KEY = getCivicApiKey()
 
@@ -27,6 +28,7 @@ router.get('/:zipCode', async (req, res) => {
   const congressMembers = []
   const { zipCode } = req.params
   const { filter } = req.query
+  console.log("we received the request")
 
   if (!zipCode.match(/^\d{5}(-\d{4})?$/)) {
     res.status(400).send({
@@ -117,9 +119,9 @@ router.get('/:zipCode', async (req, res) => {
   }
 })
 
-module.exports = router
 
 // Temporary implementation for fallback with deprecation warnings
+// get token needed to use the API
 function getCivicApiKey() {
   const { CIVIC_API_KEY, CivicAPI } = process.env
   const civicApiKey = CIVIC_API_KEY || CivicAPI
@@ -131,6 +133,7 @@ function getCivicApiKey() {
         'Please remove your deprecated "CivicAPI" environment variable!'
       )
     } else {
+      console.log("heeeeey")
       console.warn(
         'Expected "CIVIC_API_KEY" environment variable was not found.'
       )
@@ -143,3 +146,6 @@ function getCivicApiKey() {
 
   return civicApiKey
 }
+
+module.exports = router
+

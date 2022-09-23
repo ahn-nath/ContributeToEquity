@@ -24,11 +24,6 @@ apiRouter.use(apiLimiter)
 // Routes
 apiRouter.use('/representatives', representatives)
 apiRouter.use('/testAPI', testAPIRouter);
-// apiRouter.use('/campaigns', campaigns)
-// apiRouter.use('/authentication', authentication)
-// apiRouter.use('/letter_versions', letterVersions)
-// apiRouter.use('/lob', lob)
-// apiRouter.use('/checkout', checkout)
-//apiRouter.use('/twilio', twilio)
+
 
 module.exports = apiRouter

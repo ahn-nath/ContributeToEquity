@@ -1,7 +1,17 @@
 const express = require('express')
 const router = express.Router()
+const { Octokit, App } = require("octokit");
 
-// send GitHub repositories to use by the app
+// token we need to make calls to GitHub API
+const GITHUB_API_TOKEN = getGitHubApiToken()
+
+// Client API: https://github.com/octokit/core.js#readme
+const octokit = new Octokit({
+    auth: GITHUB_API_TOKEN
+  })
+  
+
+// Method: get all GitHub repositories the app uses and promotes
 router.get('/', async (req, res) => {
     try {
         const repositories = {
@@ -25,7 +35,7 @@ router.get('/', async (req, res) => {
 })
 
 
-// send GitHub repositories the users is associated with
+// Method: get GitHub repositories the user is associated with
 router.get('/:id', async (req, res) => {
     const id = req.params.id
     // TODO: make call to database to match user projects (ids) and compare with JSON object of the repos
@@ -46,5 +56,53 @@ router.get('/:id', async (req, res) => {
         res.status(500).send({ error: 'Whoops! We could not get your repositories' })
     }
 })
+
+// Method: verify GitHub contribution by author to specific repository
+router.get('/:owner/:repo/:username', async (req, res) => {
+    const owner = req.params.owner
+    const repo_name = req.params.repo
+    const github_username = req.params.username
+
+    console.log("github username: " + github_username)
+    console.log("repo: " + repo_name)
+    // TODO: make call to database to match user projects (ids) and compare with JSON object of the repos
+    try {
+        const response = await octokit.request('GET /repos/{owner}/{repo}/commits?author={author}', {
+            owner: owner,
+            repo: repo_name,
+            author: github_username 
+          })
+
+        console.log(response.data)
+        // validate and send response
+        var arr = response.data
+        if(arr.length > 0){
+          res.send({hasMadeContribution: true})
+        }  
+        else{
+          res.send({hasMadeContribution: false})  
+        }
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ error: 'Whoops! We could not verify your contribution' })
+    }
+})
+
+
+// get token needed to use the API
+function getGitHubApiToken() {
+    const GITHUB_API_TOKEN = process.env.GITHUB_API_TOKEN
+
+    if (GITHUB_API_TOKEN) {
+        console.warn('Using the "GITHUB_API_TOKEN" environment variable.')
+    } else {
+        console.warn(
+            'Expected "GITHUB_API_TOKEN" environment variable was not found.'
+        )
+    }
+    // out
+    return GITHUB_API_TOKEN
+}
 
 module.exports = router

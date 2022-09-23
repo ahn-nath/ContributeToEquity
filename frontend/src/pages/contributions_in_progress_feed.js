@@ -16,6 +16,7 @@ const ContributionsFeedInProgress = () => {
   const [items, setItems] = useState([]);
   const user_id = 1 // TODO: replace with id of authenticated user
 
+  // fecth items to render as cards
   useEffect(() => {
     // make request to get user's contrubutions in progress
     fetch("/api/github/" + user_id) // /api/user/contributions
@@ -32,12 +33,22 @@ const ContributionsFeedInProgress = () => {
       )
   }, [])
 
+  // verify/validate open source contribution and send thanks message
+  const handleClick = (event, param) => {
+    console.log(event);
+    console.log(param);
+  };
+
 
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
+  }
+
+  else if (!isLoaded) {
     return <div>Loading...</div>;
-  } else {
+  }
+
+  else {
     return (
       // main wrapper
       <div style={{ padding: 20, margin: "auto", maxWidth: "1000px" }}>
@@ -76,11 +87,16 @@ const ContributionsFeedInProgress = () => {
                 >
                   {item.description}
                 </Typography>
+                {
+                  // use GitHub API to verify contributionand send thanks message and use Amplify API to list representatives with Twitter accounts
+                  <CardActions style={{ padding: 0 }}>
 
-                <CardActions style={{ padding: 0 }}>
-                  <Button size="medium" style={{ backgroundColor: "#b80c09", color: "white" }}>Verify contribution</Button>
-                  <Button size="medium" style={{ backgroundColor: "#b7b5b3", color: "black" }}>Share with representative</Button>
-                </CardActions>
+                    <Button onClick={event => handleClick(event, 'hello world')} size="medium" style={{ backgroundColor: "#b80c09", color: "white" }}>Verify contribution</Button>
+                    
+                    <Button onClick={event => handleClick(event, 'hello world')} size="medium" style={{ backgroundColor: "#b7b5b3", color: "black" }}>Share with representative</Button>
+
+                  </CardActions>
+                }
 
 
               </CardContent>

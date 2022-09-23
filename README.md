@@ -29,7 +29,9 @@ We are using MERN stack for the project.
 Make sure you have latest node installed. 
 
 - Clone the project
-``` git clone https://github.com/ahn-nath/thanks_for_your_contribution_to_equity.git```
+```
+git clone https://github.com/ahn-nath/thanks_for_your_contribution_to_equity.git
+```
 
 - Setup front end
 ```

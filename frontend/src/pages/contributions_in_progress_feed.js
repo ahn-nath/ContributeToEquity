@@ -14,11 +14,12 @@ const ContributionsFeedInProgress = () => {
   const [error, setError] = useState(null);
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
-  const user_id = 1 // TODO: replace with id of authenticated user
+  const [hasMadeContribution, setHasMadeContribution] = useState(Boolean)
 
+  // fecth items to render as cards
   useEffect(() => {
     // make request to get user's contrubutions in progress
-    fetch("/api/github/" + user_id) // /api/user/contributions
+    fetch("/api/github/") // /api/user/contributions
       .then(res => res.json())
       .then(
         (result) => {
@@ -32,12 +33,70 @@ const ContributionsFeedInProgress = () => {
       )
   }, [])
 
+  // verify/validate open source contribution and send thanks message
+  const handleClickForVerification = (event, owner, repo) => {
+    console.log(event);
+    console.log(owner);
+    console.log(repo)
+
+    var username = "ahn-nath" // TODO: replace with current username
+    //var thanks_url =  // TODO: replace with current username attribute
+    var url = `/api/github/${owner}/${repo}/${username}`
+
+    // make request to get user's contrubutions in progress
+    fetch(url) // /api/user/contributions
+      .then(res => res.json())
+      .then(
+        (result) => {
+          setIsLoaded(true);
+          setHasMadeContribution(result["hasMadeContribution"]);
+          console.log("has made contribution? ", hasMadeContribution);
+
+          // the user has made a contribution and we will attempt to send a thank you message
+          if (hasMadeContribution) {
+            var url_thanks = `/api/github/send-thanks/${repo}`
+
+            fetch(url_thanks) // /api/user/contributions
+              .then(res => res.json())
+              .then(
+                (result) => {
+                  alert(result["message"]);
+                },
+                (error) => {
+                  alert(result["message"]);
+                }
+              )
+          }
+          else {
+            // the user has not made a contribution, and we must inform them that we will not send a thanks message
+            alert("We could not find any commit with you as an author")
+          }
+        },
+        (error) => {
+          setIsLoaded(true);
+          setError(error);
+        }
+      )
+  };
+
+  // verify/validate open source contribution and send thanks message
+  const handleClickForSharing = (event, param) => {
+    console.log(event);
+    console.log(param);
+  };
+
+
+
 
   if (error) {
     return <div>Error: {error.message}</div>;
-  } else if (!isLoaded) {
+  }
+
+  else if (!isLoaded) {
     return <div>Loading...</div>;
-  } else {
+  }
+
+  else {
     return (
       // main wrapper
       <div style={{ padding: 20, margin: "auto", maxWidth: "1000px" }}>
@@ -60,7 +119,7 @@ const ContributionsFeedInProgress = () => {
             >
               <CardContent>
                 <Typography style={{ fontSize: 14 }} color="textSecondary" gutterBottom>
-                  Link: <a color='textSecondary' href='{item.link}'>{item.link}</a>
+                  {item.owner}
                 </Typography>
 
                 <Typography variant="h5" component="h2">
@@ -76,11 +135,16 @@ const ContributionsFeedInProgress = () => {
                 >
                   {item.description}
                 </Typography>
+                {
+                  // use GitHub API to verify contributionand send thanks message and use Amplify API to list representatives with Twitter accounts
+                  <CardActions style={{ padding: 0 }}>
 
-                <CardActions style={{ padding: 0 }}>
-                  <Button size="medium" style={{ backgroundColor: "#b80c09", color: "white" }}>Verify contribution</Button>
-                  <Button size="medium" style={{ backgroundColor: "#b7b5b3", color: "black" }}>Share with representative</Button>
-                </CardActions>
+                    <Button onClick={event => handleClickForVerification(event, item.owner, item.name)} size="medium" style={{ backgroundColor: "#b80c09", color: "white" }}>Verify contribution</Button>
+
+                    <Button onClick={event => handleClickForSharing(event, 'hello world')} size="medium" style={{ backgroundColor: "#b7b5b3", color: "black" }}>Share with representative</Button>
+
+                  </CardActions>
+                }
 
 
               </CardContent>

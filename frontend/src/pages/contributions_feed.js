@@ -14,18 +14,18 @@ const ContributionsFeed = () => {
       <Card
         style={{
           width: 400,
-          backgroundColor: "yellow",
+          backgroundColor: "white",
           minWidth: "1000px",
           padding: 20
         }}
       >
         <CardContent>
           <Typography style={{ fontSize: 14 }} color="textSecondary" gutterBottom>
-            Available open source project
+            Link: Available open source project
           </Typography>
 
           <Typography variant="h5" component="h2">
-            How are you ?
+            Project repository name
           </Typography>
 
           <Typography
@@ -39,11 +39,13 @@ const ContributionsFeed = () => {
             numquam blanditiis.
           </Typography>
 
+      
+
 
         </CardContent>
 
         <CardActions style={{textAlign: "right"}}>
-          <Button size="medium" style={{backgroundColor: "white", color: "black" }}>Contribute to project</Button>
+          <Button size="medium" style={{backgroundColor: "#b80c09", color: "white" }}>Contribute to project</Button>
         </CardActions>
 
       </Card>

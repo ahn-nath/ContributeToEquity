@@ -24,7 +24,7 @@ const LoginForm = ({
     useEffect(() => {
         if (isAuthenticated) {
             console.log("logged in")
-            navigate('/')
+            navigate('/contributions-feed')
         }
         else {
             console.log("not logged in")
@@ -64,11 +64,7 @@ const LoginForm = ({
                     </FormGroup>
 
                     <FormGroup className="text-center">
-                        <StatusMessage
-                            loading={loading}
-                            success={success}
-                            status={status}
-                        />
+ 
                     </FormGroup>
                     <FormGroup className="text-center col-12 d-flex flex flex-column align-items-center">
                         <Button

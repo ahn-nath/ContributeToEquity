@@ -50,18 +50,31 @@ export const loginUser = (userData) => (dispatch) => {
         payload: null
     });
 
-    axios_instance
-        .post("/login", userData)
-        .then((response) => {
-            dispatch({
-                type: LOGIN_SUCCESS,
-                payload: response.data
-            });
-        })
-        .catch((err) => {
-            dispatch({
-                type: LOGIN_FAILED,
-                payload: err.response ? err.response.data : err.message
-            });
-        });
+    dispatch({
+        type: LOGIN_SUCCESS,
+        payload: {
+            user: {
+                ghUserName: "ahn-nath", sayThanksIOurl: 'https://saythanks.io/to/ahn-nath'
+            },
+            isAuthenticated: true,
+            success: true,
+            loading: true,
+            status: { loading: false, status: true, sucess: true },
+        }
+    })
+
+    // axios_instance
+    //     .post("/login", userData)
+    //     .then((response) => {
+    //         dispatch({
+    //             type: LOGIN_SUCCESS,
+    //             payload: response.data
+    //         });
+    //     })
+    //     .catch((err) => {
+    //         dispatch({
+    //             type: LOGIN_FAILED,
+    //             payload: err.response ? err.response.data : err.message
+    //         });
+    //     });
 };

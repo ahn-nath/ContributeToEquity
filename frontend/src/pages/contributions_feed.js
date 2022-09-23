@@ -1,9 +1,11 @@
 import React from 'react';
+import Link from '@mui/material/Link'
 import Card from '@mui/material/Card'
 import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import CardActions from '@mui/material/CardActions'
+
 
 // props and API
 import { useEffect, useState } from 'react';
@@ -60,7 +62,7 @@ const ContributionsFeed = () => {
             >
               <CardContent>
                 <Typography style={{ fontSize: 14 }} color="textSecondary" gutterBottom>
-                  Link: <a color='textSecondary' href='{item.link}'>{item.link}</a>
+                  {item.owner}
                 </Typography>
 
                 <Typography variant="h5" component="h2">
@@ -78,7 +80,10 @@ const ContributionsFeed = () => {
                 </Typography>
 
                 <CardActions style={{ padding: 0 }}>
-                  <Button size="medium" style={{ backgroundColor: "#b80c09", color: "white" }}>Contribute to project</Button>
+                  <a href={item.link} style={{textDecoration: 'none'}} target="_blank" rel="noreferrer">
+                    <Button size="medium" style={{ backgroundColor: "#b80c09", color: "white" }}>Contribute to project</Button>
+                  </a>
+
                 </CardActions>
 
 

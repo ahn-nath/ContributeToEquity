@@ -7,6 +7,7 @@ const rateLimit = require('express-rate-limit')
 // Require routes
 const representatives = require('./routes/api/representatives')
 const testAPIRouter = require("./routes/api/testAPI");
+const github = require("./routes/api/github");
 
 // Created a nested router
 const apiRouter = express.Router()
@@ -24,6 +25,7 @@ apiRouter.use(apiLimiter)
 // Routes
 apiRouter.use('/representatives', representatives)
 apiRouter.use('/testAPI', testAPIRouter);
+apiRouter.use('/github', github);
 
 
 module.exports = apiRouter

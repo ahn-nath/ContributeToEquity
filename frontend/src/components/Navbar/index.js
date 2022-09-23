@@ -15,10 +15,10 @@ const Navbar = () => {
           <NavLink to="/register" activeStyle>
             Register
           </NavLink>
-          <NavLink to="/blogs" activeStyle>
+          <NavLink to="/contributions-feed" activeStyle>
             Contributions feed
           </NavLink>
-          <NavLink to="/sign-up" activeStyle>
+          <NavLink to="/contributions-in-progress-feed" activeStyle>
             Contributions in progress
           </NavLink>
         </NavMenu>

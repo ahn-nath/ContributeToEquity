@@ -17,8 +17,8 @@ return (
         <Route path='/' exact element={<Home />} />
         <Route path='/login' element={<Login/>} />
         <Route path='/register' element={<Register/>} />
-        <Route path='/blogs' element={<ContributionsFeed/>} />
-        <Route path='/sign-up' element={<ContributionsFeedInProgress/>} />
+        <Route path='/contributions-feed' element={<ContributionsFeed/>} />
+        <Route path='/contributions-in-progress-feed' element={<ContributionsFeedInProgress/>} />
     </Routes>
     </Router>
 );

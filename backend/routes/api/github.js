@@ -24,4 +24,27 @@ router.get('/', async (req, res) => {
     }
 })
 
+
+// send GitHub repositories the users is associated with
+router.get('/:id', async (req, res) => {
+    const id = req.params.id
+    // TODO: make call to database to match user projects (ids) and compare with JSON object of the repos
+    try {
+        const repositories = {
+            // dummy object for now
+            repos: [
+                { "id": 1, "name": "Urbanization Change Detection", "description": "Urbanization detection using computer vision algorithms to reduce the reliance on the data of government surveys, which will speed up the policy making process.", "link": "https://github.com/geekysethi/Urbanization-change-detection" },
+                { "id": 2, "name": "ActWorthy", "description": "ctWorthy is social media for social change. We are creating the platform that makes people feel compelled to take action in their community. Action might include donating, volunteering, or any community-oriented action you can think of.", "link": "https://github.com/actworthy/citizen-flutter" },
+            ]
+
+        }
+        console.log(repositories)
+        res.send(repositories)
+
+    } catch (error) {
+        console.log(error)
+        res.status(500).send({ error: 'Whoops! We could not get your repositories' })
+    }
+})
+
 module.exports = router

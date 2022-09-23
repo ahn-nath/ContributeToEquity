@@ -78,7 +78,8 @@ const ContributionsFeedInProgress = () => {
                 </Typography>
 
                 <CardActions style={{ padding: 0 }}>
-                  <Button size="medium" style={{ backgroundColor: "#b80c09", color: "white" }}>Contribute to project</Button>
+                  <Button size="medium" style={{ backgroundColor: "#b80c09", color: "white" }}>Verify contribution</Button>
+                  <Button size="medium" style={{ backgroundColor: "#b7b5b3", color: "black" }}>Share with representative</Button>
                 </CardActions>
 
 

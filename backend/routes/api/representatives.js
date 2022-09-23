@@ -30,7 +30,7 @@ router.get('/:zipCode', async (req, res) => {
   const { filter } = req.query
   console.log("we received the request")
 
-  if (!zipCode.match(/^\d{5}(-\d{4})?$/)) {
+  if (!zipCode.match(/^\d{5}(-\d{4})?$/)){
     res.status(400).send({
       error:
         'Invalid zip code format, valid examples are 84054-6013 or 84054. The zipcode used was ' +
@@ -73,20 +73,11 @@ router.get('/:zipCode', async (req, res) => {
           const repInfo = {
             name: rep.name || '',
             title: officeType.name || '',
-            address_line1: '',
-            address_line2: '',
-            address_city: '',
-            address_state: '',
-            address_zip: '',
             address_country: 'US',
             email:
               (Array.isArray(rep.emails) && rep.emails[0]) || 'Not Made Public',
             twitter: 'Not Made Public',
-            facebook: 'Not Made Public',
             contactPage: (Array.isArray(rep.urls) && rep.urls[0]) || '',
-            photoUrl:
-              rep.photoUrl ||
-              'https://cdn.pixabay.com/photo/2016/08/08/09/17/avatar-1577909_1280.png'
           }
 
           if (Array.isArray(rep.address) && rep.address[0]) {
@@ -108,10 +99,13 @@ router.get('/:zipCode', async (req, res) => {
               repInfo.twitter = twitter.id
             }
           }
+          if(repInfo.twitter != "Not Made Public"){
           congressMembers.push(repInfo)
+          }
         })
       })
 
+    console.log(congressMembers)
     res.send(congressMembers)
   } catch (error) {
     console.log(error)
@@ -123,10 +117,9 @@ router.get('/:zipCode', async (req, res) => {
 // Temporary implementation for fallback with deprecation warnings
 // get token needed to use the API
 function getCivicApiKey() {
-  const { CIVIC_API_KEY, CivicAPI } = process.env
-  const civicApiKey = CIVIC_API_KEY || CivicAPI
+  const CIVIC_API_KEY = process.env.CIVIC_API_KEY
+  const civicApiKey = CIVIC_API_KEY
 
-  if (CivicAPI) {
     if (CIVIC_API_KEY) {
       console.warn('Using "CIVIC_API_KEY" environment variable.')
       console.warn(
@@ -137,12 +130,9 @@ function getCivicApiKey() {
       console.warn(
         'Expected "CIVIC_API_KEY" environment variable was not found.'
       )
-      console.warn(
-        'Falling back to deprecated "CivicAPI" environment variable....'
-      )
       console.warn('Please update your environment to use the expected key!')
     }
-  }
+  
 
   return civicApiKey
 }

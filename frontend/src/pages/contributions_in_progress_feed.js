@@ -4,6 +4,7 @@ import CardContent from '@mui/material/CardContent'
 import Typography from '@mui/material/Typography'
 import Button from '@mui/material/Button'
 import CardActions from '@mui/material/CardActions'
+import Modal from "../components/Modal/Modal";
 
 // props and API
 import { useEffect, useState } from 'react';
@@ -15,6 +16,8 @@ const ContributionsFeedInProgress = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [items, setItems] = useState([]);
   const [hasMadeContribution, setHasMadeContribution] = useState(Boolean)
+  // modal state
+  const [show, setShow] = useState(false);
 
   // fecth items to render as cards
   useEffect(() => {
@@ -79,14 +82,6 @@ const ContributionsFeedInProgress = () => {
       )
   };
 
-  // verify/validate open source contribution and send thanks message
-  const handleClickForSharing = (event, param) => {
-    console.log(event);
-    console.log(param);
-  };
-
-
-
 
   if (error) {
     return <div>Error: {error.message}</div>;
@@ -141,8 +136,11 @@ const ContributionsFeedInProgress = () => {
 
                     <Button onClick={event => handleClickForVerification(event, item.owner, item.name)} size="medium" style={{ backgroundColor: "#b80c09", color: "white" }}>Verify contribution</Button>
 
-                    <Button onClick={event => handleClickForSharing(event, 'hello world')} size="medium" style={{ backgroundColor: "#b7b5b3", color: "black" }}>Share with representative</Button>
+                    <Button onClick={() => setShow(true)} size="medium" style={{ backgroundColor: "#b7b5b3", color: "black" }}>Share with representative</Button>
 
+                    <Modal title="My Modal" onClose={() => setShow(false)} show={show}>
+                      <p>This is modal body</p>
+                    </Modal>
                   </CardActions>
                 }
 

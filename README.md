@@ -45,10 +45,31 @@ npm start
 
 ## Why it's even more special
 
-This being an orientation hackathon, we were looking for an idea that could use both the projects that were assigned to us under GitHub. This project is build upon the APIs of both [Program Equity](https://github.com/ProgramEquity) and [SayThanks.io](https://saythanks.io/) which made it more special as we got the chance to explore it even more. 
+This being an orientation hackathon, we were looking for an idea that could use both the projects that were assigned to us under GitHub. This project is build upon the APIs of both [Program Equity](https://github.com/ProgramEquity) and [SayThanks.io](https://saythanks.io/) which made it more special.  
 
 
 ## LICENSE
 
+MIT License
+
+Copyright (c) Nathaly Toledo 
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
 
 

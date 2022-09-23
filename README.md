@@ -12,7 +12,14 @@ This project serves as a bridge connecting them.
 
 ## Project Features
 
+- Find social good tech projects and contribute to them while tracking your progress
+- Share and spread awareness about your work that is making an impact in those campaigns with the world and the representatives associated with that hackathon. 
+- Representatives and maintainers can send you custom thank you messages for your contribution to the cause. 
+- Uses GitHub API to dynamically update your contribution progress.
+
 ## User Flow
+
+Check this demonstration video to get the user flow -> [YT Link](https://youtu.be/oMQL1qKpTDo)
 
 ## Project Tech Stack
 

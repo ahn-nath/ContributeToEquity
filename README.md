@@ -26,7 +26,19 @@ This project serves as a bridge connecting them.
 Check this demonstration video to get the user flow -> [YT Link](https://youtu.be/oMQL1qKpTDo)
 
 ### Initial wireframes 
-[add screenshots]
+---
+![signin](https://user-images.githubusercontent.com/67247850/192173938-cbe5cd1f-f60c-46aa-b571-65bb72884a78.png)
+---
+![signup](https://user-images.githubusercontent.com/67247850/192173964-bdd950bb-9c7c-4727-a920-49bf7753ec25.png)
+---
+![contributionpage](https://user-images.githubusercontent.com/67247850/192173971-88c3feb2-9b92-4bee-8ff7-5dff880bf15c.png)
+---
+![contributionsinprogresspage](https://user-images.githubusercontent.com/67247850/192173978-b1dd4f47-ee95-4f7b-9f04-1e13b8ede5a6.png)
+---
+![contributionstwittershare](https://user-images.githubusercontent.com/67247850/192173987-6a9d70d3-21c6-4b52-8c50-b6428ab0d2b5.png)
+---
+![contributionssaythanks](https://user-images.githubusercontent.com/67247850/192173992-b6b5b2ca-f8ef-41a2-b940-1d64266a337e.png)
+---
 
 ## Project Tech Stack
 

@@ -1,4 +1,5 @@
 # Contribute to Equity
+![contributions](https://user-images.githubusercontent.com/67247850/192173465-600def16-29e8-4b5b-b338-e94c2705f691.png)
 
 A web app that allows you to contribute to open source projects of social tech causes as a developer and promote awareness via the government representatives that could help support them. It helps contributors make an impact through tech by empowering social causes and underrepresented campaigns, and it also sends them a “thank you message” after the system verifies the contribution. 
 

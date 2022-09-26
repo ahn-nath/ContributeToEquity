@@ -1,39 +1,44 @@
 # Contribute to Equity
 
-A web app that allows you to contribute to open source projects of social tech causes as a developer and promote awareness via the representatives involved in the campaigns of the projects. It lets make an impact through tech by empowering social cause and under represented campaigns. 
+A web app that allows you to contribute to open source projects of social tech causes as a developer and promote awareness via the government representatives that could help support them. It helps contributors make an impact through tech by empowering social causes and underrepresented campaigns, and it also sends them a “thank you message” after the system verifies the contribution. 
 
-## How the idea developed ?
+## How did the idea develop?
 
-The projects assigned to us were [Program Equity](https://github.com/ProgramEquity) and [SayThanks.io](https://saythanks.io/). SayThanks.io lets you send customized messages to developers and Program Equity focuses on creating awareness about different under-represented campaigns. 
+The projects assigned to us were [Program Equity](https://github.com/ProgramEquity) and [SayThanks.io](https://saythanks.io/). SayThanks.io lets you send customized messages to developers, and Program Equity focuses on creating awareness about different under-represented campaigns. 
 
-We saw a gap in this, something similar to what Program Equity is trying to fill. Just like there are different social good campaigns that go un-noticed due to unawareness, in the same way there are multiple social good tech projects that need recognition and developers to keep it progressing. Correspondingly, there are developers who are trying to make an impact through code are looking for such projects. 
+We saw a gap in this, similar to what Program Equity is trying to fill. Just like there are different social good campaigns that go unnoticed due to unawareness, in the same way, there are multiple social good tech projects that need recognition and developers to keep it progressing. Correspondingly, there are developers who are trying to make an impact through code and are looking for such projects. 
+
 
 This project serves as a bridge connecting them. 
 
 ## Project Features
 
 - Find social good tech projects and contribute to them while tracking your progress
-- Share and spread awareness about your work that is making an impact in those campaigns with the world and the representatives associated with that hackathon. 
-- Representatives and maintainers can send you custom thank you messages for your contribution to the cause. 
+- Share and spread awareness about your work that is impacting those campaigns with the world and the representatives associated with that hackathon. 
+- Representatives and maintainers can send you custom “thank you” messages for your contribution to the cause automatically and objectively with the [SayThanks.io](https://saythanks.io/) project after confirming your commits and issues to the project. 
+- You can send a message to a representative in your list/area via Twitter to talk about your contribution and ways in which they can also contribute to the projects.
 - Uses GitHub API to dynamically update your contribution progress.
 
-## User Flow
 
+## User Flow
+### Demo
 Check this demonstration video to get the user flow -> [YT Link](https://youtu.be/oMQL1qKpTDo)
+
+### Initial wireframes 
+[add screenshots]
 
 ## Project Tech Stack
 
 We are using MERN stack for the project. 
 
-- The backend is an express + node app with PostgreSQL as our database.
-- The frontend is a React.js app
-- We are using Amplify project under Program Equity for Civic APIs and getting representative data.
-- We are using SayThanks.io endpoints to send custom "Thank you" to users inboxes
-
+- The backend uses the Node.js web application framework, Express.js app with PostgreSQL as our database.
+- The frontend is a React.js app.
+- We are using the Amplify project under Program Equity for Civic APIs and getting the representatives’ data.
+- We are using SayThanks.io endpoints to send custom "Thank you" to users' inboxes.
 
 ## Installation Instructions 
 
-Make sure you have latest node installed. 
+Make sure you have the latest recommended version for most users of [Node.js](https://nodejs.org/en/) installed. The current version we use is 16.17.1 LTS. 
 
 - Clone the project
 ```
@@ -42,13 +47,15 @@ git clone https://github.com/ahn-nath/thanks_for_your_contribution_to_equity.git
 
 - Setup front end
 ```
-cd frontend && npm i
+cd frontend 
+npm i
 npm start
 ```
 
 - Populate the environment variables and setup the server
 ```
-cd server && npm i
+cd backend 
+npm i
 npm start
 ```
 

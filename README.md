@@ -72,6 +72,16 @@ npm i
 npm start
 ```
 
+**IMPORTANT**
+You must add your own values for the frontend/env file. The values has been revoked. Please add your own GitHub personal token.
+```
+...
+# GitHub API connection
+GITHUB_API_TOKEN=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 # REPLACE THIS WITH YOUR OWN PERSONAL TOKEN
+# Google API Civic
+...
+```
+CIVIC_API_KEY=AIzaSyDHV1THTd8ybs75Hs8WG21uxvTC4ywm-BQ
 ## Why it's even more special
 
 This being an orientation hackathon, we were looking for an idea that could use both the projects that were assigned to us under GitHub. This project is build upon the APIs of both [Program Equity](https://github.com/ProgramEquity) and [SayThanks.io](https://saythanks.io/) which made it more special.  
